@@ -1,0 +1,45 @@
+# Dependencies and builds
+node_modules/
+.next/
+out/
+dist/
+.vercel/
+tsconfig.tsbuildinfo
+runner/runner
+runner/runner.exe
+
+# Logs and test output
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+coverage/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+.npmrc
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+service-account*.json
+
+# Local databases and caches
+.dolt/
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+
+# Editor, OS, and local agent state
+.DS_Store
+.idea/
+.vscode/
+.serena/
+.beads/
+.codex/
+.claude/

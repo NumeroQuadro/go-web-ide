@@ -1,0 +1,19 @@
+[Unit]
+Description=Hosted Go Scratchpad (Next.js)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=scratchpad
+Group=scratchpad
+WorkingDirectory=/srv/scratchpad
+EnvironmentFile=/srv/scratchpad/.env
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/npm run start -- -p 3000 -H 127.0.0.1
+Restart=on-failure
+RestartSec=3
+TimeoutStartSec=2min
+
+[Install]
+WantedBy=multi-user.target

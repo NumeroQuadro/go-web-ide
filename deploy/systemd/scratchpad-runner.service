@@ -1,0 +1,19 @@
+[Unit]
+Description=Hosted Go Scratchpad (Runner)
+After=network-online.target docker.service
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=simple
+User=scratchpad
+Group=scratchpad
+WorkingDirectory=/srv/scratchpad/runner
+EnvironmentFile=/srv/scratchpad/runner/.env
+ExecStart=/srv/scratchpad/runner/runner
+Restart=on-failure
+RestartSec=3
+TimeoutStartSec=10min
+
+[Install]
+WantedBy=multi-user.target

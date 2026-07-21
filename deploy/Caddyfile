@@ -1,0 +1,8 @@
+editor.example.com {
+  encode zstd gzip
+
+  # Next.js app only (runner stays localhost-only).
+  handle /goofy-editor/* {
+    reverse_proxy 127.0.0.1:3000
+  }
+}
