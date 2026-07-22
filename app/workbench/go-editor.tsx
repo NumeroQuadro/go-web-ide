@@ -6,7 +6,7 @@ import { useCallback, useEffect, useMemo, useRef } from "react";
 import type * as monaco from "monaco-editor";
 import type { VimAdapterInstance } from "monaco-vim";
 
-const GOOFY_LIGHT_THEME: monaco.editor.IStandaloneThemeData = {
+const GO_WEB_IDE_LIGHT_THEME: monaco.editor.IStandaloneThemeData = {
   base: "vs",
   inherit: true,
   rules: [
@@ -116,7 +116,7 @@ export function GoEditor({
 
   const beforeMount = useCallback((m: typeof monaco) => {
     if (themeReadyRef.current) return;
-    m.editor.defineTheme("goofy-light", GOOFY_LIGHT_THEME);
+    m.editor.defineTheme("go-web-ide-light", GO_WEB_IDE_LIGHT_THEME);
     themeReadyRef.current = true;
   }, []);
 
@@ -163,7 +163,7 @@ export function GoEditor({
   return (
     <div className="monaco" aria-label="Go editor">
       <MonacoEditor
-        theme="goofy-light"
+        theme="go-web-ide-light"
         defaultLanguage="go"
         path={`${tabId}.go`}
         height="100%"

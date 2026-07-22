@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/goofy-editor",
+  basePath: "/go-web-ide",
 };
 
 export default nextConfig;

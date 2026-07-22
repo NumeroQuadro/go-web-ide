@@ -11,7 +11,7 @@ Recommended MVP deployment is a single Ubuntu VPS running:
 
 End users only need a browser. They do **not** need Docker.
 
-Target base URL used in examples: `https://editor.example.com/goofy-editor/`.
+Target base URL used in examples: `https://editor.example.com/go-web-ide/`.
 
 ## High-level architecture
 
@@ -155,10 +155,10 @@ sudo usermod -aG docker scratchpad
 - Configure Auth:
   - enable email magic link (OTP) or chosen provider
   - configure URL settings (Authentication → URL Configuration):
-    - **Site URL**: `https://editor.example.com/goofy-editor`
+    - **Site URL**: `https://editor.example.com/go-web-ide`
     - **Additional Redirect URLs**:
-      - `https://editor.example.com/goofy-editor/auth/callback`
-      - (optional local dev) `http://localhost:3000/goofy-editor/auth/callback`
+      - `https://editor.example.com/go-web-ide/auth/callback`
+      - (optional local dev) `http://localhost:3000/go-web-ide/auth/callback`
 - Apply the schema and RLS from `docs/data/supabase-schema.md`.
 
 ## 4) Environment files
@@ -175,7 +175,7 @@ sudo install -m 600 -o scratchpad -g scratchpad /dev/null /srv/scratchpad/runner
 ### Web app env: `/srv/scratchpad/.env`
 
 ```env
-APP_BASE_URL=https://editor.example.com/goofy-editor
+APP_BASE_URL=https://editor.example.com/go-web-ide
 APP_ALLOWED_EMAILS=owner@example.com
 
 NEXT_PUBLIC_SUPABASE_URL=...
@@ -257,7 +257,7 @@ proxy_buffers 8 32k;
 proxy_busy_buffers_size 64k;
 ```
 
-Apply those directives to both the `/goofy-editor` and `/goofy-editor/` proxy locations, then run:
+Apply those directives to both the `/go-web-ide` and `/go-web-ide/` proxy locations, then run:
 
 ```bash
 sudo nginx -t
@@ -268,15 +268,15 @@ This Caddyfile only exposes the Next.js app publicly. The runner remains localho
 
 ## Nginx alternative (shared domain)
 
-If you already run other projects on the same domain with Nginx, proxy only the `/goofy-editor/` path to the Next.js app.
+If you already run other projects on the same domain with Nginx, proxy only the `/go-web-ide/` path to the Next.js app.
 
-Important: this app is built with Next.js `basePath: "/goofy-editor"`, so the proxy must **not** strip the prefix.
+Important: this app is built with Next.js `basePath: "/go-web-ide"`, so the proxy must **not** strip the prefix.
 In Nginx that means the `proxy_pass` target should **not** end with a trailing slash.
 
 Example snippet:
 
 ```nginx
-location /goofy-editor/ {
+location /go-web-ide/ {
   proxy_pass http://127.0.0.1:3000;
   proxy_http_version 1.1;
   proxy_set_header Host $host;
@@ -385,7 +385,7 @@ sudo systemctl restart scratchpad-web
 
 ## Smoke checklist
 
-- `https://editor.example.com/goofy-editor/login` loads and can send auth link.
+- `https://editor.example.com/go-web-ide/login` loads and can send auth link.
 - Signed-in allowlisted user can access `/workbench`.
 - Tabs persist and restore after refresh.
 - `Run` triggers `/api/run` and produces output.

@@ -22,7 +22,7 @@ export function LoginForm() {
 
       setSending(true);
       try {
-        const response = await fetch("/goofy-editor/api/auth/magic-link", {
+        const response = await fetch("/go-web-ide/api/auth/magic-link", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -98,14 +98,14 @@ export function LoginForm() {
       <div style={{ display: "grid", gap: 10 }}>
         <a
           className="button secondary"
-          href="/goofy-editor/api/auth/oauth?provider=google"
+          href="/go-web-ide/api/auth/oauth?provider=google"
           style={{ width: "100%", justifyContent: "center" }}
         >
           Continue with Google
         </a>
         <a
           className="button secondary"
-          href="/goofy-editor/api/auth/oauth?provider=github"
+          href="/go-web-ide/api/auth/oauth?provider=github"
           style={{ width: "100%", justifyContent: "center" }}
         >
           Continue with GitHub

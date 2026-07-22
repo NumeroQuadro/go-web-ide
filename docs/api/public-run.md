@@ -4,8 +4,8 @@
 
 Authenticated endpoint exposed by the Next.js app to run the current Go workspace. The Next.js app validates auth and forwards the request to the internal runner on localhost.
 
-Note: this repo configures Next.js with `basePath: "/goofy-editor"`, so in production this endpoint is reached at
-`POST /goofy-editor/api/run`.
+Note: this repo configures Next.js with `basePath: "/go-web-ide"`, so in production this endpoint is reached at
+`POST /go-web-ide/api/run`.
 
 ## Auth
 

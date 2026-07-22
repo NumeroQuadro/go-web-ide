@@ -27,7 +27,7 @@ jobs:
         env:
           NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
           NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY: sb_publishable_example
-          APP_BASE_URL: http://localhost:3000/goofy-editor
+          APP_BASE_URL: http://localhost:3000/go-web-ide
           APP_ALLOWED_EMAILS: owner@example.com
           RUNNER_INTERNAL_URL: http://127.0.0.1:8081
           RUNNER_SHARED_SECRET: ci-only-placeholder

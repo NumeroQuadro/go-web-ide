@@ -1,5 +1,5 @@
 {
-  "name": "goofy-code-editor",
+  "name": "go-web-ide",
   "private": true,
   "scripts": {
     "dev": "next dev",

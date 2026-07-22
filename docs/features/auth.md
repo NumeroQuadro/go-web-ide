@@ -17,10 +17,10 @@ MVP authentication uses **Supabase Auth** and supports an optional allowlist via
 In the Supabase Dashboard, configure Auth URL settings to match the hosted base URL (including the base path):
 
 - **Authentication → URL Configuration**
-  - **Site URL**: set to `APP_BASE_URL` (example: `https://editor.example.com/goofy-editor`)
+  - **Site URL**: set to `APP_BASE_URL` (example: `https://editor.example.com/go-web-ide`)
   - **Additional Redirect URLs**: include:
-    - `https://editor.example.com/goofy-editor/auth/callback`
-    - `http://localhost:3000/goofy-editor/auth/callback` (local dev)
+    - `https://editor.example.com/go-web-ide/auth/callback`
+    - `http://localhost:3000/go-web-ide/auth/callback` (local dev)
 
 If magic-link emails point to `http://localhost:3000/...`, Supabase is still configured for localhost (or the magic
 link was requested while browsing localhost). Update the settings and request a new magic link.
@@ -65,14 +65,14 @@ Secrets/admin keys must never be exposed to the browser bundle.
 - Rationale: the hosted app should not depend on every end-user browser being able to make a third-party request to
   `*.supabase.co` directly. A same-origin route avoids browser/network blockers surfacing as a generic fetch failure.
 - The route should still use Supabase Auth as the only auth system and should preserve the hosted callback URL under
-  `/goofy-editor/auth/callback`.
+  `/go-web-ide/auth/callback`.
 - Because the callback route exchanges an auth code for a cookie-backed session, same-origin auth routes must use the
   Supabase SSR client so PKCE state is persisted in cookies across the redirect.
 
 ### Social provider request path
 
 - Social sign-in buttons may link to a same-origin app route which initiates `signInWithOAuth()` server-side and then redirects the browser to Supabase/Auth provider consent.
-- The callback must still land on `/goofy-editor/auth/callback` so the app can exchange the returned code for a session and apply allowlist enforcement.
+- The callback must still land on `/go-web-ide/auth/callback` so the app can exchange the returned code for a session and apply allowlist enforcement.
 - When the app initiates social sign-in server-side, it must use the Supabase SSR client rather than a stateless
   client, otherwise the callback may return without an exchangeable auth code.
 - Providers must be enabled in the Supabase Dashboard with their own client ID/secret before the buttons can succeed on production.

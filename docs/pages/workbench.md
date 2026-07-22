@@ -11,8 +11,8 @@ The workbench is the core authenticated UI: Monaco editor + tabs + Run + termina
   - signed-out users are redirected to `/login`
   - non-allowlisted users are denied (see `docs/features/auth.md`)
 
-Note: this repo configures Next.js with `basePath: "/goofy-editor"`, so in production this page is reached at
-`/goofy-editor/workbench`.
+Note: this repo configures Next.js with `basePath: "/go-web-ide"`, so in production this page is reached at
+`/go-web-ide/workbench`.
 
 ## Layout (desktop-first)
 

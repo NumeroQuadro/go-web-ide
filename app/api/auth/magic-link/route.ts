@@ -22,7 +22,7 @@ function getCallbackUrl(request: Request): string {
   const configuredBaseUrl = getAppBaseUrl();
   const baseUrl = configuredBaseUrl
     ? configuredBaseUrl.replace(/\/+$/, "")
-    : new URL("/goofy-editor", request.url).toString().replace(/\/+$/, "");
+    : new URL("/go-web-ide", request.url).toString().replace(/\/+$/, "");
 
   return `${baseUrl}/auth/callback`;
 }

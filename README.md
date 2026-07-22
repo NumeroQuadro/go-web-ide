@@ -1,6 +1,6 @@
-# Goofy Code Editor
+# Go Web IDE
 
-[![CI](https://github.com/NumeroQuadro/goofy-code-editor-public/actions/workflows/ci.yml/badge.svg)](https://github.com/NumeroQuadro/goofy-code-editor-public/actions/workflows/ci.yml)
+[![CI](https://github.com/NumeroQuadro/go-web-ide/actions/workflows/ci.yml/badge.svg)](https://github.com/NumeroQuadro/go-web-ide/actions/workflows/ci.yml)
 
 A self-hosted Go scratchpad for writing, saving, and running small Go programs from a browser.
 
@@ -29,7 +29,7 @@ Next.js web app ─────► Supabase Auth + Postgres
 Go runner ───────────► disposable Docker container
 ```
 
-The web app lives at `/goofy-editor`. The runner listens on `127.0.0.1:8081` by default and must not be exposed directly to the internet.
+The web app lives at `/go-web-ide`. The runner listens on `127.0.0.1:8081` by default and must not be exposed directly to the internet.
 
 ## Quick start
 
@@ -57,7 +57,7 @@ Prerequisites: Node.js 24+, Go 1.22+, Docker, and a Supabase project.
    npm run dev
    ```
 
-5. Open <http://localhost:3000/goofy-editor>.
+5. Open <http://localhost:3000/go-web-ide>.
 
 For authentication setup and production deployment, see [`docs/features/auth.md`](docs/features/auth.md) and [`docs/deployment/vps.md`](docs/deployment/vps.md).
 

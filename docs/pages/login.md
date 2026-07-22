@@ -9,8 +9,8 @@ Provide a simple sign-in flow for the **single-user personal** hosted scratchpad
 - `GET /login`
 - If the user is already authenticated, redirect to `/workbench`.
 
-Note: this repo configures Next.js with `basePath: "/goofy-editor"`, so in production this page is reached at
-`/goofy-editor/login`.
+Note: this repo configures Next.js with `basePath: "/go-web-ide"`, so in production this page is reached at
+`/go-web-ide/login`.
 
 ## UX requirements (MVP)
 
@@ -33,23 +33,23 @@ Note: this repo configures Next.js with `basePath: "/goofy-editor"`, so in produ
 ## Supabase configuration requirements
 
 In the Supabase Dashboard, configure Auth URL settings so magic links land on the hosted app under
-`/goofy-editor/` (this matters when the domain hosts multiple projects).
+`/go-web-ide/` (this matters when the domain hosts multiple projects).
 
 Go to **Authentication → URL Configuration** and set:
 
 - **Site URL**:
-  - `https://editor.example.com/goofy-editor`
+  - `https://editor.example.com/go-web-ide`
 - **Additional Redirect URLs** (minimum required):
-  - `https://editor.example.com/goofy-editor/auth/callback`
-  - (local dev) `http://localhost:3000/goofy-editor/auth/callback`
+  - `https://editor.example.com/go-web-ide/auth/callback`
+  - (local dev) `http://localhost:3000/go-web-ide/auth/callback`
 
 Notes:
 
 - If you request a magic link while browsing `http://localhost:3000/...`, the email link will point to localhost.
   Request the magic link from the production site to get a production link.
 - After changing Supabase URL settings, old emails still contain the old link; request a new magic link.
-- The app uses a callback route at `/auth/callback` (implemented as `/goofy-editor/auth/callback` in production).
-- Google/GitHub sign-in also redirect back through `/goofy-editor/auth/callback`, so the same callback URL must remain in the redirect allow list.
+- The app uses a callback route at `/auth/callback` (implemented as `/go-web-ide/auth/callback` in production).
+- Google/GitHub sign-in also redirect back through `/go-web-ide/auth/callback`, so the same callback URL must remain in the redirect allow list.
 - The callback route exchanges an auth code for a session, so same-origin auth initiation routes must preserve Supabase
   PKCE cookies across the redirect.
 
@@ -72,7 +72,7 @@ Server env:
 
 ```env
 APP_ALLOWED_EMAILS=owner@example.com
-APP_BASE_URL=https://editor.example.com/goofy-editor
+APP_BASE_URL=https://editor.example.com/go-web-ide
 ```
 
 ## Acceptance criteria
